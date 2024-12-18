@@ -1,4 +1,4 @@
-# BankAccount Class in Dart
+# BankAccount Class
 
 This Dart code defines a `BankAccount` class with methods to manage a simple bank account, including deposits, withdrawals, and displaying account information. It also handles cases where the account is closed (balance is `null`).
 
@@ -158,6 +158,3 @@ void main() {
 - **Account Activation**: The account needs to have a balance of `0` or more to perform transactions.
 - **Error Handling**: The code checks for conditions like closed accounts and insufficient funds before performing actions.
 
----
-
-Happy Coding! 😊
