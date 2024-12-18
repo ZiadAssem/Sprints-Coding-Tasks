@@ -165,22 +165,6 @@ class User{
 
 ---
 
-## How to Run the Project
-
-1. **Ensure Dart SDK is installed**.
-2. Create the following files in the same directory:
-   - `main.dart`
-   - `library.dart`
-   - `book.dart`
-   - `user.dart`
-3. Open a terminal and navigate to the project directory.
-4. Run the project with:
-
-   ```bash
-   dart main.dart
-   ```
-
----
 
 ## Sample Output
 
