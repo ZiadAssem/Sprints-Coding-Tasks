@@ -1,16 +1,27 @@
-# the_first_flutter_project
+# Task 9 Flutter Project
 
-A new Flutter project.
+First Flutter project
 
-## Getting Started
+## Code Explanation
 
-This project is a starting point for a Flutter application.
+- **Main Function**:  
+  The `main()` function starts the app by calling `runApp()` with the `MyApp()` widget as the root.
 
-A few resources to get you started if this is your first Flutter project:
+- **MyApp Widget**:  
+  `MyApp` is a stateless widget that sets up the `MaterialApp` with:
+  - `theme`: Sets the primary color to blue and font family to 'Suwannaphum'.
+  - `title`: The app's title is set to 'Task 9'.
+  - `home`: The `Task9` widget is displayed as the home screen.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Task9 Widget**:  
+  `Task9` is a stateless widget:
+  - `AppBar`: Displays a blue header with the title 'My first project'.
+  - `body`: A `Padding` widget with 16.0 pixels of padding . Inside the body:
+    - A `Column` widget with centered alignment contains:
+      - A `Row` widget displaying two images:
+        -  from local assets (`assets/images/sprints.png`).
+        -  from a network URL (`https://picsum.photos/200/300`).
+      - A `SizedBox` for gap.
+      - A `Text` widget displaying 'The two images are displayed', with custom styling (font size, weight, and color).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
