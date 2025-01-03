@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:signup_page/products/models/product_model.dart';
 import 'package:signup_page/products/view/widgets/carousel.dart';
 import 'package:signup_page/products/view/widgets/grid.dart';
 import 'package:signup_page/products/view/widgets/list.dart';
-import 'package:signup_page/products/models/product_model.dart';
-
+import 'package:signup_page/utils/helper_functions.dart';
 
 class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
@@ -37,7 +38,7 @@ List<ProductModel> products = [
       name: 'Phone',
       price: 35000,
       description: 'A new Google Pixel phone',
-      image: 'assets/images/google.jpeg')
+      image: 'assets/images/google.jpeg'),
 ];
 
 class _ProductsPageState extends State<ProductsPage> {
@@ -45,7 +46,18 @@ class _ProductsPageState extends State<ProductsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sprints Products' , style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
+        title: Text(
+          tr('our_products'),
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+         actions: [
+          TextButton(onPressed: (){
+            changeLang(context);
+          }, child: Text(tr('lang')))
+        ],
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
@@ -55,15 +67,15 @@ class _ProductsPageState extends State<ProductsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const SectionTitle(title: 'OUR PRODUCTS'),
+              SectionTitle(title: tr('our_products')),
               const SizedBox(height: 16),
               ProductCarousel(products: products),
               const SizedBox(height: 24),
-              const SectionTitle(title: 'Product Catalog'),
+              SectionTitle(title: tr('product_catalog')),
               const SizedBox(height: 16),
               ProductGrid(products: products),
               const SizedBox(height: 24),
-              const SectionTitle(title: 'Hot Offers'),
+              SectionTitle(title: tr('hot_offers')),
               const SizedBox(height: 16),
               HotOffersList(products: products),
             ],
@@ -83,13 +95,10 @@ class SectionTitle extends StatelessWidget {
     return Text(
       title,
       style: const TextStyle(
-          fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
     );
   }
 }
-
-
-
-
-
-

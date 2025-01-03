@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:signup_page/auth/mixin/validation_mixin.dart';
 import 'package:signup_page/auth/view/widgets/form_field.dart';
 import 'package:signup_page/products/view/products_screen.dart';
+import 'package:signup_page/utils/helper_functions.dart';
 
 class SignupScreen extends StatelessWidget with ValidationMixin {
   SignupScreen({super.key});
@@ -17,8 +19,18 @@ class SignupScreen extends StatelessWidget with ValidationMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
+        title: Text(
+          tr('sign_up'),
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        actions: [
+          TextButton(onPressed: (){
+            changeLang(context);
+          }, child: Text(tr('lang')))
+        ],
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
@@ -33,69 +45,73 @@ class SignupScreen extends StatelessWidget with ValidationMixin {
                 CustomFormField(
                   controller: _nameController,
                   validator: validateName,
-                  labelText: 'Name',
+                  labelText: tr('name'),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 CustomFormField(
                   controller: _emailController,
                   validator: validateEmail,
-                  labelText: 'Email',
+                  labelText: tr('email'),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 CustomFormField(
                   controller: _passwordController,
                   validator: validatePassword,
-                  labelText: 'Password',
+                  labelText: tr('password'),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 CustomFormField(
                   controller: _confirmPasswordController,
                   validator: (value) =>
                       validateConfirmPassword(value, _passwordController.text),
-                  labelText: 'Confirm Password',
+                  labelText: tr('confirm_password'),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStatePropertyAll(Color(Colors.blue.value)),
-                        fixedSize: WidgetStatePropertyAll(Size(200, 50))),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: Text('Account Created Successfully'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(
-                                      PageRouteBuilder(
-                                        pageBuilder: (context, animation,
-                                                secondaryAnimation) =>
-                                            FadeTransition(
-                                          opacity: animation,
-                                          child: ProductsPage(),
-                                        ),
-                                        transitionDuration:
-                                            Duration(milliseconds: 700),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    fixedSize: MaterialStateProperty.all(const Size(200, 50)),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(tr('account_created')),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          FadeTransition(
+                                        opacity: animation,
+                                        child: const ProductsPage(),
                                       ),
-                                    );
-                                  },
-                                  child: Text('Close'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      }
-                    },
-                    child: Text('Sign Up',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600))),
+                                      transitionDuration:
+                                          const Duration(milliseconds: 700),
+                                    ),
+                                  );
+                                },
+                                child: Text(tr('close')),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  },
+                  child: Text(
+                    tr('sign_up'),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -103,4 +119,5 @@ class SignupScreen extends StatelessWidget with ValidationMixin {
       ),
     );
   }
+  
 }

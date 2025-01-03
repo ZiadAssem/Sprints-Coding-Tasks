@@ -1,0 +1,21 @@
+{
+    "sign_up": "Sign Up",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "name_required": "Name is required",
+    "name_capital": "Name must start with a capital letter",
+    "email_required": "Email is required",
+    "email_invalid": "Email must contain @",
+    "password_length": "Password must be at least 6 characters",
+    "password_mismatch": "Passwords do not match",
+    "account_created": "Account Created Successfully",
+    "close": "Close",
+    "our_products": "OUR PRODUCTS",
+    "product_catalog": "Product Catalog",
+    "hot_offers": "Hot Offers",
+    "added_to_cart": "{} added to cart",
+    "lang":"عربي"
+  }
+  
