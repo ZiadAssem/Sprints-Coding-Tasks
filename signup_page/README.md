@@ -56,3 +56,35 @@ class CustomFormField extends StatelessWidget {
 2. **Validation**: Each input field has its own validation method defined in the `ValidationMixin`. When the user submits the form, it checks if all fields are valid.
 3. **Success Dialog**: If the form is validated, an alert dialog appears confirming account creation, and the user is redirected to the `ProductsPage`.
 4. **CustomFormField**: A reusable widget for input fields
+
+# Navigation with Fade Animation
+
+
+## Key Features
+
+
+1. **`PageRouteBuilder`**:  
+   Allows transitions between screens
+
+2. **`FadeTransition`**:  
+   Applies a fade effect during the screen transition
+
+3. **`transitionDuration`**:  
+   Specifies the duration of the animation. In this example, the transition takes **700 milliseconds**.
+
+## Code Example
+
+```dart
+onPressed: () {
+  Navigator.of(context).pushReplacement(
+    PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          FadeTransition(
+        opacity: animation,
+        child: ProductsPage(),
+      ),
+      transitionDuration: Duration(milliseconds: 700),
+    ),
+  );
+},
+```
