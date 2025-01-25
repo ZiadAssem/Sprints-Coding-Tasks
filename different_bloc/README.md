@@ -33,7 +33,7 @@ class ThemeCubit extends Cubit<ThemeData> {
 
 ## UI Implementation
 ### Using `BlocConsumer`
-The UI updates the counter value and shows a SnackBar when it reaches 5.
+The UI updates the counter value and shows a SnackBar when it reaches 10 or -10.
 
 ```dart
 import 'package:different_bloc/presentation/bloc/counter/counter_cubit.dart';
@@ -77,9 +77,9 @@ class CounterPage extends StatelessWidget {
             );
           },
           listener: (context, counterValue) {
-            if (counterValue == 5) {
+            if (counterValue == 10 || counterValue == -10) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Counter reached 5!')),
+                SnackBar(content: Text('Counter reached $counterValue!')),
               );
             }
           },

@@ -42,9 +42,9 @@ class CounterPage extends StatelessWidget {
             );
           },
           listener: (context, counterValue) {
-            if (counterValue == 5) {
+            if (counterValue == 10 || counterValue == -10) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Counter reached 5!')),
+                SnackBar(content: Text('Counter reached $counterValue!')),
               );
             }
           },
